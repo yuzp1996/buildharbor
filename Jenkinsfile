@@ -16,5 +16,5 @@ AlaudaPipeline {
 		GOOS: "linux",
     ]
 
-    yaml = "harbor/alauda.yaml"
+    yaml = "alauda.yaml"
 }

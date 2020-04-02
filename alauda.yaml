@@ -5,6 +5,8 @@ steps:
         container: tools
         groovy:
           - |+
+            sh 'pwd && ls'
+            sh 'rm -rf harbor && rm -rf supportarm && rm -rf contrib && rm -rf docs && rm -rf make && rm -rf src && rm -rf tests && rm -rf tools'
             sh 'git clone https://github.com/goharbor/harbor.git && cd harbor &&  git checkout -b buildimage v1.8.6'
             sh 'mv harbor/* .'
             sh './buildimage.sh'
