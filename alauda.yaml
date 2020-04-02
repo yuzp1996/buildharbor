@@ -1,0 +1,10 @@
+steps:
+  - name: Docker
+    parallel:
+      - name:  buildhabror
+        container: tools
+        groovy:
+          - |+
+            sh 'git clone https://github.com/goharbor/harbor.git && cd harbor &&  git checkout -b buildimage v1.8.6'
+            sh 'mv harbor/* .'
+            sh './buildimage.sh'
