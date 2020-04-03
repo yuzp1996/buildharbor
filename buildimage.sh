@@ -70,7 +70,7 @@ echo 'preapre for build arm64 image'
 echo 'mv ./dumb-init_1.2.2_arm64 ./make/photon/clair/dumb-init'
 mv ./dumb-init_1.2.2_arm64 ./make/photon/clair/dumb-init
 
-sed -i 's/build --pull/buildx build --allow network.host --platform linux\/arm64 --progress plain --push/' "make/photon/Makefile"
+sed -i 's/build --pull/buildx build --allow network.host --platform linux\/arm64 --progress plain --output=type=registry/' "make/photon/Makefile"
 sed -i 's/=yugougou\//=armharbor.alauda.cn\/alaudak8s\//g' "make/photon/Makefile"
 echo "ARM64 make/photon/Makefile is "
 cat make/photon/Makefile
@@ -119,7 +119,7 @@ cat make/photon/notary/binary.Dockerfile
 
 echo "build image for arm64"
 
-docker buildx build --allow network.host --platform linux/arm64 --progress plain --push -t armharbor.alauda.cn/alaudak8s/harborredis:test -f redis/Dockerfile .
+docker buildx build --allow network.host --platform linux/arm64 --progress plain --output=type=registry -t armharbor.alauda.cn/alaudak8s/harborredis:test -f redis/Dockerfile .
 
 make compile
 make build
