@@ -119,7 +119,7 @@ cat make/photon/notary/binary.Dockerfile
 
 echo "build image for arm64"
 
-docker buildx build --allow network.host --platform linux/arm64 --progress plain --output=type=registry -t armharbor.alauda.cn/alaudak8s/harborredis:test -f redis/Dockerfile .
+docker buildx build --allow network.host --platform linux/arm64 --progress plain --output=type=registry -t armharbor.alauda.cn/alaudak8s/harborredis:v1.8.6 -f redis/Dockerfile .
 
 make compile
 make build
